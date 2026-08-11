@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رزومه سید بهزاد موسوی | مدیر برنامه‌ریزی و پروژه</title>
     
-    <!-- فونت وزیرمتن -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
-    <!-- آیکون‌ها -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <style>
@@ -26,369 +24,201 @@
             font-family: 'Vazirmatn', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 40px 20px;
-            line-height: 1.8;
+            padding: 30px 15px;
+            line-height: 1.5;
             color: var(--dark);
+            font-size: 13px;
         }
         
         .resume-container {
-            max-width: 950px;
+            max-width: 210mm;
             margin: 0 auto;
             background: white;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
         }
         
-        /* هدر */
+        /* ===== هدر ===== */
         .header {
             background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
             color: white;
-            padding: 40px;
+            padding: 20px 25px;
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
             position: relative;
         }
-        
         .header::after {
-            content: '';
-            position: absolute;
+            content: ''; position: absolute;
             bottom: 0; left: 0; right: 0;
-            height: 4px;
-            background: var(--accent);
+            height: 3px; background: var(--accent);
         }
-        
         .photo-box {
-            width: 150px;
-            height: 150px;
+            width: 100px; height: 100px;
             border-radius: 50%;
-            border: 4px solid var(--accent);
-            overflow: hidden;
-            flex-shrink: 0;
-            background: white;
+            border: 3px solid var(--accent);
+            overflow: hidden; flex-shrink: 0; background: white;
         }
+        .photo-box img { width: 100%; height: 100%; object-fit: cover; }
+        .header-info h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 3px; }
+        .header-info .title { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; }
+        .contact-info { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.73rem; }
+        .contact-item { display: flex; align-items: center; gap: 4px; }
+        .contact-item i { color: var(--accent); width: 12px; }
         
-        .photo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .header-info h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        
-        .header-info .title {
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .contact-item i {
-            color: var(--accent);
-            width: 18px;
-        }
-        
-        /* نوار اطلاعات فردی */
+        /* ===== نوار اطلاعات فردی ===== */
         .personal-bar {
             background: var(--light);
-            padding: 20px 40px;
+            padding: 10px 25px;
             border-bottom: 2px solid var(--accent);
         }
-        
         .personal-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 4px;
         }
-        
         .personal-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            padding: 6px 10px;
-            background: white;
-            border-radius: 6px;
-            border-right: 3px solid var(--primary);
+            display: flex; align-items: center; gap: 5px;
+            font-size: 0.7rem; padding: 3px 7px;
+            background: white; border-radius: 4px;
+            border-right: 2px solid var(--primary);
         }
+        .personal-item i { color: var(--accent); width: 11px; }
+        .personal-item .label { color: var(--gray); }
+        .personal-item .value { color: var(--dark); font-weight: 600; }
         
-        .personal-item i {
-            color: var(--accent);
-            width: 16px;
-        }
-        
-        .personal-item .label {
-            color: var(--gray);
-        }
-        
-        .personal-item .value {
-            color: var(--dark);
-            font-weight: 600;
-        }
-        
-        /* بدنه */
+        /* ===== بدنه دو ستونه ===== */
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 190px 1fr;
         }
-        
         .sidebar {
             background: var(--light);
-            padding: 30px 25px;
+            padding: 15px 12px;
             border-left: 1px solid var(--border);
         }
+        .content { padding: 15px 20px; }
         
-        .content {
-            padding: 30px;
-        }
-        
-        .section {
-            margin-bottom: 30px;
-        }
-        
+        .section { margin-bottom: 12px; }
         .section-title {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
+            font-size: 0.88rem; color: var(--primary); font-weight: 700;
+            margin-bottom: 7px; padding-bottom: 4px;
+            border-bottom: 2px solid var(--accent); display: inline-block;
         }
-        
-        .section-title i {
-            margin-left: 8px;
-            color: var(--accent);
-        }
+        .section-title i { margin-left: 5px; color: var(--accent); font-size: 0.8rem; }
         
         /* مهارت */
-        .skill-item { margin-bottom: 12px; }
-        
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
-            font-size: 0.9rem;
-        }
-        
-        .skill-bar {
-            height: 6px;
-            background: var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .skill-level {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 10px;
-        }
+        .skill-item { margin-bottom: 6px; }
+        .skill-name { display: flex; justify-content: space-between; margin-bottom: 2px; font-size: 0.7rem; }
+        .skill-bar { height: 4px; background: var(--border); border-radius: 10px; overflow: hidden; }
+        .skill-level { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 10px; }
         
         /* لیست ساده */
-        .simple-list {
-            list-style: none;
-        }
-        
-        .simple-list li {
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--border);
-            font-size: 0.9rem;
-        }
-        
+        .simple-list { list-style: none; }
+        .simple-list li { padding: 3px 0; border-bottom: 1px dashed var(--border); font-size: 0.7rem; }
         .simple-list li:last-child { border-bottom: none; }
+        .lang-level { color: var(--accent); font-size: 0.63rem; float: left; }
         
-        .lang-level {
-            color: var(--accent);
-            font-size: 0.8rem;
-            float: left;
-        }
-        
-        /* تجربه */
+        /* تجربه کاری */
         .experience-item {
-            margin-bottom: 20px;
-            padding-right: 18px;
-            border-right: 3px solid var(--accent);
+            margin-bottom: 9px;
+            padding-right: 12px;
+            border-right: 2px solid var(--accent);
             position: relative;
         }
-        
         .experience-item::before {
-            content: '';
-            position: absolute;
-            right: -7px;
-            top: 4px;
-            width: 11px;
-            height: 11px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 2px solid white;
+            content: ''; position: absolute;
+            right: -5px; top: 3px;
+            width: 7px; height: 7px;
+            background: var(--accent); border-radius: 50%; border: 2px solid white;
         }
+        .exp-header { display: flex; justify-content: space-between; margin-bottom: 2px; flex-wrap: wrap; gap: 4px; }
+        .exp-title { font-size: 0.78rem; font-weight: 700; color: var(--dark); }
+        .exp-date { background: var(--primary); color: white; padding: 1px 7px; border-radius: 10px; font-size: 0.58rem; height: fit-content; }
+        .exp-company { color: var(--accent); font-weight: 600; margin-bottom: 2px; font-size: 0.7rem; }
+        .exp-desc ul { list-style: none; color: var(--gray); font-size: 0.68rem; }
+        .exp-desc li { padding-right: 12px; position: relative; margin-bottom: 1px; }
+        .exp-desc li::before { content: '▸'; position: absolute; right: 0; color: var(--accent); }
         
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .exp-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-        
-        .exp-date {
-            background: var(--primary);
-            color: white;
-            padding: 2px 10px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-        }
-        
-        .exp-company {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-        
-        .exp-desc ul {
-            list-style: none;
-            color: var(--gray);
-            font-size: 0.88rem;
-        }
-        
-        .exp-desc li {
-            padding-right: 18px;
-            position: relative;
-            margin-bottom: 4px;
-        }
-        
-        .exp-desc li::before {
-            content: '▸';
-            position: absolute;
-            right: 0;
-            color: var(--accent);
-        }
-        
-        /* باکس تخصص ها */
+        /* باکس تخصص‌ها */
         .skills-box {
-            margin-top: 15px;
-            padding: 15px;
-            background: var(--light);
-            border-radius: 8px;
-            border-right: 3px solid var(--accent);
+            margin-top: 8px; padding: 10px;
+            background: var(--light); border-radius: 6px;
+            border-right: 2px solid var(--accent);
         }
+        .skills-box-title { color: var(--dark); font-weight: 700; margin-bottom: 5px; font-size: 0.76rem; }
+        .skills-box ul { list-style: none; color: var(--gray); font-size: 0.68rem; }
+        .skills-box li { padding-right: 12px; position: relative; margin-bottom: 2px; }
+        .skills-box li::before { content: '▸'; position: absolute; right: 0; color: var(--accent); }
         
-        .skills-box-title {
-            color: var(--dark);
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        
-        .skills-box ul {
-            list-style: none;
-            color: var(--gray);
-            font-size: 0.88rem;
-        }
-        
-        .skills-box li {
-            padding-right: 18px;
-            position: relative;
-            margin-bottom: 5px;
-        }
-        
-        .skills-box li::before {
-            content: '▸';
-            position: absolute;
-            right: 0;
-            color: var(--accent);
-        }
-        
-        /* دکمه دانلود */
+        /* ===== دکمه دانلود ===== */
         .download-section {
-            text-align: center;
-            padding: 25px;
-            background: var(--light);
-            border-top: 1px solid var(--border);
+            text-align: center; padding: 15px;
+            background: var(--light); border-top: 1px solid var(--border);
+            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
         }
-        
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+        .btn {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 8px 22px; border-radius: 50px;
+            font-weight: 600; font-size: 0.82rem;
+            transition: all 0.3s; cursor: pointer;
+            border: none; font-family: 'Vazirmatn', sans-serif;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
         }
+        .btn-pdf { background: var(--primary); color: white; }
+        .btn-pdf:hover { background: var(--accent); transform: translateY(-2px); }
         
-        .download-btn:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-        }
-        
-        /* پرینت */
+        /* ===== پرینت / PDF ===== */
         @media print {
-            body { 
-                background: white; 
-                padding: 0; 
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            @page { size: A4; margin: 8mm; }
+            body {
+                background: white !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
-            .resume-container { 
-                box-shadow: none; 
-                border-radius: 0; 
-                max-width: 100%;
+            .resume-container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                overflow: visible !important;
             }
-            .download-section { display: none; }
-            .header { padding: 20px; }
-            .main-content { grid-template-columns: 1fr 2fr; }
-            a { text-decoration: none; color: inherit; }
+            .download-section { display: none !important; }
+            .experience-item,
+            .skills-box,
+            .section,
+            .personal-bar,
+            .header {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            .sidebar, .content {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
         }
         
         /* موبایل */
         @media (max-width: 768px) {
-            .header { flex-direction: column; text-align: center; padding: 25px 20px; }
+            .header { flex-direction: column; text-align: center; padding: 15px; }
             .contact-info { justify-content: center; }
-            .personal-grid { grid-template-columns: 1fr; }
-            .personal-bar { padding: 15px 20px; }
+            .personal-grid { grid-template-columns: 1fr 1fr; }
+            .personal-bar { padding: 8px 15px; }
             .main-content { grid-template-columns: 1fr; }
             .sidebar { border-left: none; border-top: 1px solid var(--border); }
-            .header-info h1 { font-size: 1.8rem; }
-            .content, .sidebar { padding: 20px; }
+            .header-info h1 { font-size: 1.4rem; }
+            .content, .sidebar { padding: 12px; }
         }
     </style>
 </head>
 <body>
-    <div class="resume-container">
+    <div class="resume-container" id="resume">
         
         <!-- هدر -->
         <header class="header">
             <div class="photo-box">
-                <!-- ✅ مسیر نسبی تصویر اصلاح شد -->
-                <img src="./profile.jpg" alt="سید بهزاد موسوی" onerror="this.src='https://via.placeholder.com/150x150?text=Profile'">
+                <img src="./profile.jpg" alt="سید بهزاد موسوی" onerror="this.src='https://via.placeholder.com/100x100?text=Profile'">
             </div>
             <div class="header-info">
                 <h1>سید بهزاد موسوی</h1>
@@ -402,7 +232,7 @@
             </div>
         </header>
         
-        <!-- اطلاعات فردی (اصلاح شده جهت امنیت) -->
+        <!-- اطلاعات فردی -->
         <div class="personal-bar">
             <div class="personal-grid">
                 <div class="personal-item"><i class="fas fa-birthday-cake"></i><span class="label">سال تولد:</span><span class="value">۱۳۴۸</span></div>
@@ -413,7 +243,7 @@
                 <div class="personal-item"><i class="fas fa-mosque"></i><span class="label">مذهب:</span><span class="value">اسلام - شیعه</span></div>
                 <div class="personal-item"><i class="fas fa-shield-alt"></i><span class="label">سربازی:</span><span class="value">پایان خدمت</span></div>
                 <div class="personal-item"><i class="fas fa-ring"></i><span class="label">تأهل:</span><span class="value">متأهل</span></div>
-                <div class="personal-item"><i class="fas fa-graduation-cap"></i><span class="label">تحصیلات:</span><span class="value">کارشناسی ارشد مهندسی صنایع</span></div>
+                <div class="personal-item"><i class="fas fa-graduation-cap"></i><span class="label">تحصیلات:</span><span class="value">ارشد مهندسی صنایع</span></div>
             </div>
         </div>
         
@@ -423,41 +253,39 @@
             <!-- سایدبار -->
             <aside class="sidebar">
                 <div class="section">
-                    <h2 class="section-title"><i class="fas fa-cogs"></i>مهارت‌ها</h2>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>برنامه‌ریزی و کنترل پروژه</span><span>۹۸٪</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width: 98%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>مدیریت پروژه (PMP)</span><span>۹۵٪</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>نفت، گاز و پتروشیمی</span><span>۹۵٪</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>راه‌اندازی و پیش‌راه‌اندازی</span><span>۹۲٪</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width: 92%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>پایپینگ و نصب تجهیزات</span><span>۹۰٪</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>مدیریت کارگاه</span><span>۸۸٪</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width: 88%"></div></div>
-                    </div>
-                </div>
-                
-                <div class="section">
                     <h2 class="section-title"><i class="fas fa-language"></i>زبان‌ها</h2>
                     <ul class="simple-list">
                         <li>فارسی <span class="lang-level">زبان مادری</span></li>
                         <li>انگلیسی <span class="lang-level">پیشرفته</span></li>
                     </ul>
                 </div>
-                
+                <div class="section">
+                    <h2 class="section-title"><i class="fas fa-cogs"></i>مهارت‌ها</h2>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>برنامه‌ریزی و کنترل پروژه</span><span>۹۸٪</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width:98%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>مدیریت پروژه (PMP)</span><span>۹۵٪</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width:95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>نفت، گاز و پتروشیمی</span><span>۹۵٪</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width:95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>راه‌اندازی و پیش‌راه‌اندازی</span><span>۹۲٪</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width:92%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>پایپینگ و نصب تجهیزات</span><span>۹۰٪</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width:90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>مدیریت کارگاه</span><span>۸۸٪</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width:88%"></div></div>
+                    </div>
+                </div>
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-laptop-code"></i>نرم‌افزارها</h2>
                     <ul class="simple-list">
@@ -468,7 +296,6 @@
                         <li>PowerPoint</li>
                     </ul>
                 </div>
-                
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-industry"></i>حوزه‌های فعالیت</h2>
                     <ul class="simple-list">
@@ -481,170 +308,108 @@
                 </div>
             </aside>
             
-            <!-- محتوا -->
+            <!-- محتوای اصلی -->
             <main class="content">
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-user"></i>درباره من</h2>
-                    <p style="color: var(--gray); line-height: 2; font-size: 0.95rem;">
-                        مدیر برنامه‌ریزی و مدیریت پروژه با بیش از <strong>۲۵ سال سابقه</strong> در صنایع نفت، گاز و پتروشیمی ایران. 
-                        متخصص در مدیریت پروژه‌های کلان پالایشگاهی، پتروشیمی و سکوهای گازی در مناطق ویژه اقتصادی انرژی (عسلویه، پارس جنوبی، بندرعباس). 
-                        دارای تجربه راه‌اندازی و تولید بیش از ۱۵ فاز صنعتی، از مرحله ساخت تا تحویل نهایی به کارفرما. 
-                        مسلط به کلیه دیسیپلین‌های مهندسی شامل پایپینگ، سیویل، نصب تجهیزات سنگین، برق و ابزار دقیق، مخازن ذخیره سقف ثابت و شناور و سایر تخصص‌های مرتبط.
+                    <p style="color:var(--gray); line-height:1.7; font-size:0.76rem;">
+                        مدیر برنامه‌ریزی و مدیریت پروژه با بیش از <strong>۲۵ سال سابقه</strong> در صنایع نفت، گاز و پتروشیمی ایران.
+                        متخصص در مدیریت پروژه‌های کلان پالایشگاهی، پتروشیمی و سکوهای گازی در مناطق ویژه اقتصادی انرژی (عسلویه، پارس جنوبی، بندرعباس).
+                        دارای تجربه راه‌اندازی و تولید بیش از ۱۵ فاز صنعتی، از مرحله ساخت تا تحویل نهایی به کارفرما.
+                        مسلط به کلیه دیسیپلین‌های مهندسی شامل پایپینگ، سیویل، نصب تجهیزات سنگین، برق و ابزار دقیق، مخازن ذخیره سقف ثابت و شناور.
                     </p>
-                    
                     <div class="skills-box">
                         <div class="skills-box-title">
-                            <i class="fas fa-check-circle" style="color: var(--accent); margin-left: 6px;"></i>
+                            <i class="fas fa-check-circle" style="color:var(--accent); margin-left:5px;"></i>
                             تسلط کامل بر تمامی موارد تخصصی:
                         </div>
                         <ul>
                             <li>تهیه انواع گزارشات مدیریتی و فنی</li>
                             <li>تنظیم فایل PMS (Project Measurement System)</li>
                             <li>تنظیم برنامه زمان‌بندی در Primavera و MS Project</li>
-                            <li>تهیه اکشن پلان کارگاهی</li>
-                            <li>تهیه صورت‌وضعیت پیمانکاری</li>
-                            <li>تنظیم داشبورد مدیریتی</li>
-                            <li>تهیه لایحه تأخیرات</li>
+                            <li>تهیه اکشن پلان کارگاهی و صورت‌وضعیت پیمانکاری</li>
+                            <li>تنظیم داشبورد مدیریتی و لایحه تأخیرات</li>
                             <li>تهیه ادعای خسارت پیمانکار (Claim)</li>
-                            <li>و سایر موارد تخصصی مدیریت پروژه</li>
                         </ul>
                     </div>
                 </div>
                 
+                <!-- ✅ سوابق شغلی دقیقاً زیر باکس تخصص‌ها -->
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-briefcase"></i>سوابق شغلی</h2>
                     
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">جانشین مدیر پروژه و مدیر کارگاه</span>
-                            <span class="exp-date">بهمن ۱۴۰۴ - اکنون</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">جانشین مدیر پروژه و مدیر کارگاه</span><span class="exp-date">بهمن ۱۴۰۴ - اکنون</span></div>
                         <div class="exp-company">شرکت رسپاد | پالایشگاه مهر - بندرعباس</div>
                         <div class="exp-desc"><ul><li>ساخت و پیش‌راه‌اندازی مخازن</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">مدیر برنامه‌ریزی</span>
-                            <span class="exp-date">تیر ۱۴۰۳ - آبان ۱۴۰۴</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">مدیر برنامه‌ریزی</span><span class="exp-date">تیر ۱۴۰۳ - آبان ۱۴۰۴</span></div>
                         <div class="exp-company">مشارکت CES | پتروشیمی بوشهر - عسلویه</div>
                         <div class="exp-desc"><ul><li>کلیه دیسیپلین‌ها تا انتهای راه‌اندازی و تولید</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">مدیر برنامه‌ریزی</span>
-                            <span class="exp-date">فروردین ۱۴۰۲ - خرداد ۱۴۰۳</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">مدیر برنامه‌ریزی</span><span class="exp-date">فروردین ۱۴۰۲ - خرداد ۱۴۰۳</span></div>
                         <div class="exp-company">شرکت پترو نیرو صبا | پتروشیمی سنقر</div>
                         <div class="exp-desc"><ul><li>کلیه دیسیپلین‌ها تا انتهای راه‌اندازی و تولید</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">مدیر برنامه‌ریزی</span>
-                            <span class="exp-date">آذر ۱۴۰۰ - اسفند ۱۴۰۱</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">مدیر برنامه‌ریزی</span><span class="exp-date">آذر ۱۴۰۰ - اسفند ۱۴۰۱</span></div>
                         <div class="exp-company">شرکت فکور صنعت تهران | معدن کنسانتره گلفا و توسعه فولاد سیرجان</div>
                         <div class="exp-desc"><ul><li>کلیه دیسیپلین‌ها تا انتهای راه‌اندازی و تولید</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">مدیر برنامه‌ریزی</span>
-                            <span class="exp-date">بهمن ۱۳۹۹ - آبان ۱۴۰۰</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">مدیر برنامه‌ریزی</span><span class="exp-date">بهمن ۱۳۹۹ - آبان ۱۴۰۰</span></div>
                         <div class="exp-company">شرکت مبینا (دستگاه نظارت) | معدن مس دره‌زار</div>
                         <div class="exp-desc"><ul><li>کلیه دیسیپلین‌ها تا انتهای راه‌اندازی و تولید</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">کارشناس مسئول برنامه‌ریزی</span>
-                            <span class="exp-date">شهریور ۱۳۹۸ - خرداد ۱۳۹۹</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">کارشناس مسئول برنامه‌ریزی</span><span class="exp-date">شهریور ۱۳۹۸ - خرداد ۱۳۹۹</span></div>
                         <div class="exp-company">شرکت تکنو انرژی سپهر (تسکو) | یارد سکوسازی صدرا - بوشهر</div>
                         <div class="exp-desc"><ul><li>راه‌اندازی و تولید سکوهای گازی</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">سرپرست کارگاه</span>
-                            <span class="exp-date">بهمن ۱۳۹۵ - شهریور ۱۳۹۷</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">سرپرست کارگاه</span><span class="exp-date">بهمن ۱۳۹۵ - شهریور ۱۳۹۷</span></div>
                         <div class="exp-company">شرکت پتروسازه مبین | فازهای ۲۲-۲۴ عسلویه</div>
                         <div class="exp-desc"><ul><li>پایپینگ و نصب تجهیزات تا انتهای پیش‌راه‌اندازی</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">مدیر پروژه</span>
-                            <span class="exp-date">فروردین ۱۳۹۵ - بهمن ۱۳۹۵</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">مدیر پروژه</span><span class="exp-date">فروردین ۱۳۹۵ - بهمن ۱۳۹۵</span></div>
                         <div class="exp-company">شرکت پلیگون سازه | پارس جنوبی</div>
                         <div class="exp-desc"><ul><li>پایپینگ و سیویل تا انتهای پیش‌راه‌اندازی</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">سرپرست کارگاه</span>
-                            <span class="exp-date">فروردین ۱۳۹۴ - اسفند ۱۳۹۴</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">سرپرست کارگاه</span><span class="exp-date">فروردین ۱۳۹۴ - اسفند ۱۳۹۴</span></div>
                         <div class="exp-company">شرکت البرز نوین فارس | فازهای ۲۰-۲۱ عسلویه</div>
                         <div class="exp-desc"><ul><li>پایپینگ تا انتهای پیش‌راه‌اندازی</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">مدیر برنامه‌ریزی</span>
-                            <span class="exp-date">اردیبهشت ۱۳۹۳ - اسفند ۱۳۹۳</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">مدیر برنامه‌ریزی</span><span class="exp-date">اردیبهشت ۱۳۹۳ - اسفند ۱۳۹۳</span></div>
                         <div class="exp-company">شرکت شبدیز صنعت آپادانا | فاز ۱۳ عسلویه</div>
                         <div class="exp-desc"><ul><li>پایپینگ و سیویل تا انتهای پیش‌راه‌اندازی</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">مدیر برنامه‌ریزی</span>
-                            <span class="exp-date">اردیبهشت ۱۳۹۰ - بهمن ۱۳۹۲</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">مدیر برنامه‌ریزی</span><span class="exp-date">اردیبهشت ۱۳۹۰ - بهمن ۱۳۹۲</span></div>
                         <div class="exp-company">شرکت محمدیان | فازهای ۲۲-۲۴ عسلویه</div>
                         <div class="exp-desc"><ul><li>پایپینگ و سیویل تا انتهای پیش‌راه‌اندازی</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">مدیر برنامه‌ریزی</span>
-                            <span class="exp-date">شهریور ۱۳۸۷ - بهمن ۱۳۸۹</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">مدیر برنامه‌ریزی</span><span class="exp-date">شهریور ۱۳۸۷ - بهمن ۱۳۸۹</span></div>
                         <div class="exp-company">شرکت هانمک پارس | کارخانه تولید استراکچر - عسلویه</div>
                         <div class="exp-desc"><ul><li>تولید استراکچرهای مجتمع‌های نفت و گاز</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">سرپرست هماهنگی واحد کنترل پروژه</span>
-                            <span class="exp-date">بهمن ۱۳۸۳ - بهمن ۱۳۸۶</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">سرپرست هماهنگی واحد کنترل پروژه</span><span class="exp-date">بهمن ۱۳۸۳ - بهمن ۱۳۸۶</span></div>
                         <div class="exp-company">شرکت تویو (ژاپن) | فازهای ۶-۷-۸ عسلویه</div>
                         <div class="exp-desc"><ul><li>کلیه دیسیپلین‌های پالایشگاه تا انتهای راه‌اندازی و تولید (کارفرمای فاز)</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">کارشناس برنامه‌ریزی</span>
-                            <span class="exp-date">خرداد ۱۳۸۱ - بهمن ۱۳۸۳</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">کارشناس برنامه‌ریزی</span><span class="exp-date">خرداد ۱۳۸۱ - بهمن ۱۳۸۳</span></div>
                         <div class="exp-company">شرکت تهران جنوب | فازهای ۴-۵ عسلویه</div>
                         <div class="exp-desc"><ul><li>کلیه دیسیپلین‌ها تا انتهای راه‌اندازی و تولید</li></ul></div>
                     </div>
-                    
                     <div class="experience-item">
-                        <div class="exp-header">
-                            <span class="exp-title">کارشناس برنامه‌ریزی</span>
-                            <span class="exp-date">فروردین ۱۳۷۹ - اردیبهشت ۱۳۸۱</span>
-                        </div>
+                        <div class="exp-header"><span class="exp-title">کارشناس برنامه‌ریزی</span><span class="exp-date">فروردین ۱۳۷۹ - اردیبهشت ۱۳۸۱</span></div>
                         <div class="exp-company">شرکت آتی سازان شرق | فازهای ۲-۳ عسلویه</div>
                         <div class="exp-desc"><ul><li>سیستم‌های هواساز</li></ul></div>
                     </div>
@@ -652,13 +417,35 @@
             </main>
         </div>
         
-        <!-- دکمه دانلود -->
+        <!-- ✅ دکمه دانلود مستقیم PDF از لینک صحیح + فال‌بک هوشمند -->
         <div class="download-section">
-            <a href="https://sbmousavices.github.io/Industrial-Tools/Resume.pdf" download class="download-btn">
+            <a href="https://sbmousavices.github.io/Resume/FResume.pdf" 
+               download="Resume_Seyed_Behzad_Mousavi.pdf" 
+               class="btn btn-pdf" 
+               id="downloadBtn">
                 <i class="fas fa-file-pdf"></i>
-                دانلود رزومه PDF
+                دانلود PDF رزومه
             </a>
         </div>
     </div>
+
+    <!-- فال‌بک: اگر فایل PDF در دسترس نبود، پنجره چاپ باز شود -->
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            const pdfUrl = 'https://sbmousavices.github.io/Resume/FResume.pdf';
+            fetch(pdfUrl, { method: 'HEAD' })
+                .then(response => {
+                    if (!response.ok) {
+                        e.preventDefault();
+                        alert('فایل PDF در سرور یافت نشد.\nلطفاً از پنجره باز شده گزینه Save as PDF را انتخاب کنید.');
+                        window.print();
+                    }
+                })
+                .catch(() => {
+                    e.preventDefault();
+                    window.print();
+                });
+        });
+    </script>
 </body>
 </html>
