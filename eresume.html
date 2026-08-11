@@ -152,7 +152,7 @@
         .skills-box li { padding-left: 12px; position: relative; margin-bottom: 2px; }
         .skills-box li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
         
-        /* ===== Download Button ===== */
+        /* ===== Download Section ===== */
         .download-section {
             text-align: center; padding: 15px;
             background: var(--light); border-top: 1px solid var(--border);
@@ -169,22 +169,29 @@
         .btn-pdf { background: var(--primary); color: white; }
         .btn-pdf:hover { background: var(--accent); transform: translateY(-2px); }
         
-        /* ===== Print / PDF ===== */
+        /* ===== Print / PDF Optimization ===== */
         @media print {
             @page { size: A4; margin: 8mm; }
+            
             body {
                 background: white !important;
                 padding: 0 !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
+            
             .resume-container {
                 box-shadow: none !important;
                 border-radius: 0 !important;
                 max-width: 100% !important;
                 overflow: visible !important;
             }
-            .download-section { display: none !important; }
+            
+            .download-section { 
+                display: none !important; 
+            }
+            
+            /* Prevent breaking items across pages */
             .experience-item,
             .skills-box,
             .section,
@@ -193,9 +200,16 @@
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
             }
+            
             .sidebar, .content {
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
+            }
+            
+            /* Ensure colors print correctly */
+            .header, .exp-date, .skill-level, .btn-pdf {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
         
@@ -340,7 +354,7 @@
                     
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Deputy Project Manager & Site Manager</span><span class="exp-date">Feb 2026 - Present</span></div>
-                        <div class="exp-company">Respard Company | Mehr Refinery - Bandar Abbas</div>
+                        <div class="exp-company">Raspad Company | Mehr Refinery - Bandar Abbas</div>
                         <div class="exp-desc"><ul><li>Construction and pre-commissioning of storage tanks</li></ul></div>
                     </div>
                     <div class="experience-item">
@@ -369,7 +383,7 @@
                         <div class="exp-desc"><ul><li>Commissioning and production of gas platforms</li></ul></div>
                     </div>
                     <div class="experience-item">
-                        <div class="exp-header"><span class="exp-title">Site Supervisor</span><span class="exp-date">Feb 2017 - Sep 2018</span></div>
+                        <div class="exp-header"><span class="exp-title">Site Manager</span><span class="exp-date">Feb 2017 - Sep 2018</span></div>
                         <div class="exp-company">Petrosazeh Mobin Co. | Phases 22-24 Assaluyeh</div>
                         <div class="exp-desc"><ul><li>Piping and equipment installation through pre-commissioning</li></ul></div>
                     </div>
@@ -379,7 +393,7 @@
                         <div class="exp-desc"><ul><li>Piping and civil works through pre-commissioning</li></ul></div>
                     </div>
                     <div class="experience-item">
-                        <div class="exp-header"><span class="exp-title">Site Supervisor</span><span class="exp-date">Apr 2015 - Mar 2016</span></div>
+                        <div class="exp-header"><span class="exp-title">Site Manager</span><span class="exp-date">Apr 2015 - Mar 2016</span></div>
                         <div class="exp-company">Alborz Novin Fars Co. | Phases 20-21 Assaluyeh</div>
                         <div class="exp-desc"><ul><li>Piping works through pre-commissioning</li></ul></div>
                     </div>
@@ -417,35 +431,13 @@
             </main>
         </div>
         
-        <!-- Download Button -->
+        <!-- ✅ Single Download Button: Opens Print Dialog (Always Works) -->
         <div class="download-section">
-            <a href="./eresume.pdf" 
-               download="Resume_Seyed_Behzad_Mousavi.pdf" 
-               class="btn btn-pdf" 
-               id="downloadBtn">
+            <button onclick="window.print()" class="btn btn-pdf">
                 <i class="fas fa-file-pdf"></i>
                 Download Resume PDF
-            </a>
+            </button>
         </div>
     </div>
-
-    <!-- Fallback: If PDF not uploaded yet, open print dialog -->
-    <script>
-        document.getElementById('downloadBtn').addEventListener('click', function(e) {
-            const link = this;
-            fetch(link.href, { method: 'HEAD' })
-                .then(response => {
-                    if (!response.ok) {
-                        e.preventDefault();
-                        alert('PDF file has not been uploaded to the server yet.\n\nPlease:\n1. Press Ctrl+P\n2. Select "Save as PDF" as destination\n3. Enable "Background graphics"\n4. Save the file as eresume.pdf in the Resume folder');
-                        window.print();
-                    }
-                })
-                .catch(() => {
-                    e.preventDefault();
-                    window.print();
-                });
-        });
-    </script>
 </body>
 </html>
