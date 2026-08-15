@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Seyed Behzad Mousavi | Planning & Project Manager</title>
+    <title>Resume - Seyed Behzad Mousavi</title>
     
+    <!-- فونت و آیکون -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- کتابخانه HTML2PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <style>
         :root {
@@ -22,9 +26,9 @@
         
         body {
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f0f2f5;
             min-height: 100vh;
-            padding: 30px 15px;
+            padding: 20px;
             line-height: 1.5;
             color: var(--dark);
             font-size: 13px;
@@ -34,205 +38,161 @@
             max-width: 210mm;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border-radius: 10px;
-            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            /* جلوگیری از سرریز محتوا */
+            overflow: hidden; 
         }
         
         /* ===== Header ===== */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            background: var(--primary);
             color: white;
-            padding: 20px 25px;
+            padding: 25px 30px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
             position: relative;
+            border-bottom: 4px solid var(--accent);
         }
-        .header::after {
-            content: ''; position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 3px; background: var(--accent);
-        }
+        
         .photo-box {
-            width: 100px; height: 100px;
+            width: 110px; 
+            height: 110px;
             border-radius: 50%;
             border: 3px solid var(--accent);
-            overflow: hidden; flex-shrink: 0; background: white;
+            overflow: hidden; 
+            flex-shrink: 0; 
+            background: white;
         }
-        .photo-box img { width: 100%; height: 100%; object-fit: cover; }
-        .header-info h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 3px; }
-        .header-info .title { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; }
-        .contact-info { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.73rem; }
-        .contact-item { display: flex; align-items: center; gap: 4px; }
-        .contact-item i { color: var(--accent); width: 12px; }
+        .photo-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+        
+        .header-info h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 5px; }
+        .header-info .title { font-size: 1rem; color: var(--accent); margin-bottom: 10px; font-weight: 600; }
+        .contact-info { display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.8rem; }
+        .contact-item { display: flex; align-items: center; gap: 6px; }
+        .contact-item i { color: var(--accent); width: 14px; text-align: center;}
         
         /* ===== Personal Info Bar ===== */
         .personal-bar {
             background: var(--light);
-            padding: 10px 25px;
+            padding: 12px 30px;
             border-bottom: 2px solid var(--accent);
         }
         .personal-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 4px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
         }
         .personal-item {
-            display: flex; align-items: center; gap: 5px;
-            font-size: 0.7rem; padding: 3px 7px;
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.75rem; padding: 4px 8px;
             background: white; border-radius: 4px;
-            border-left: 2px solid var(--primary);
+            border-left: 3px solid var(--primary);
         }
-        .personal-item i { color: var(--accent); width: 11px; }
+        .personal-item i { color: var(--accent); width: 12px; text-align: center;}
         .personal-item .label { color: var(--gray); }
-        .personal-item .value { color: var(--dark); font-weight: 600; }
+        .personal-item .value { color: var(--dark); font-weight: 700; }
         
-        /* ===== Two-Column Body ===== */
-        .main-content {
-            display: grid;
-            grid-template-columns: 190px 1fr;
-        }
-        .sidebar {
-            background: var(--light);
-            padding: 15px 12px;
-            border-right: 1px solid var(--border);
-        }
-        .content { padding: 15px 20px; }
+        /* ===== Body ===== */
+        .main-content { display: grid; grid-template-columns: 200px 1fr; }
+        .sidebar { background: var(--light); padding: 20px 15px; border-right: 1px solid var(--border); }
+        .content { padding: 20px 25px; }
         
-        .section { margin-bottom: 12px; }
+        .section { margin-bottom: 15px; } /* کاهش فاصله بین بخش‌ها برای جا شدن در ۲ صفحه */
         .section-title {
-            font-size: 0.88rem; color: var(--primary); font-weight: 700;
-            margin-bottom: 7px; padding-bottom: 4px;
+            font-size: 0.95rem; color: var(--primary); font-weight: 800;
+            margin-bottom: 8px; padding-bottom: 4px;
             border-bottom: 2px solid var(--accent); display: inline-block;
+            text-transform: uppercase;
         }
-        .section-title i { margin-right: 5px; color: var(--accent); font-size: 0.8rem; }
+        .section-title i { margin-right: 6px; color: var(--accent); }
         
         /* Skills */
         .skill-item { margin-bottom: 6px; }
-        .skill-name { display: flex; justify-content: space-between; margin-bottom: 2px; font-size: 0.7rem; }
-        .skill-bar { height: 4px; background: var(--border); border-radius: 10px; overflow: hidden; }
-        .skill-level { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 10px; }
+        .skill-name { display: flex; justify-content: space-between; margin-bottom: 2px; font-size: 0.75rem; font-weight: 600;}
+        .skill-bar { height: 5px; background: #ddd; border-radius: 10px; overflow: hidden; }
+        .skill-level { height: 100%; background: var(--accent); border-radius: 10px; }
         
-        /* Simple List */
+        /* Lists */
         .simple-list { list-style: none; }
-        .simple-list li { padding: 3px 0; border-bottom: 1px dashed var(--border); font-size: 0.7rem; }
+        .simple-list li { padding: 3px 0; border-bottom: 1px dashed #ccc; font-size: 0.75rem; display: flex; justify-content: space-between; }
         .simple-list li:last-child { border-bottom: none; }
-        .lang-level { color: var(--accent); font-size: 0.63rem; float: right; }
+        .lang-level { color: var(--accent); font-size: 0.7rem; font-weight: bold;}
         
         /* Experience */
-        .experience-item {
-            margin-bottom: 9px;
-            padding-left: 12px;
-            border-left: 2px solid var(--accent);
-            position: relative;
-        }
+        .experience-item { margin-bottom: 10px; padding-left: 15px; border-left: 2px solid var(--accent); position: relative; }
         .experience-item::before {
-            content: ''; position: absolute;
-            left: -5px; top: 3px;
-            width: 7px; height: 7px;
-            background: var(--accent); border-radius: 50%; border: 2px solid white;
+            content: ''; position: absolute; left: -6px; top: 4px;
+            width: 10px; height: 10px; background: var(--accent); border-radius: 50%; border: 2px solid white;
         }
-        .exp-header { display: flex; justify-content: space-between; margin-bottom: 2px; flex-wrap: wrap; gap: 4px; }
-        .exp-title { font-size: 0.78rem; font-weight: 700; color: var(--dark); }
-        .exp-date { background: var(--primary); color: white; padding: 1px 7px; border-radius: 10px; font-size: 0.58rem; height: fit-content; }
-        .exp-company { color: var(--accent); font-weight: 600; margin-bottom: 2px; font-size: 0.7rem; }
-        .exp-desc ul { list-style: none; color: var(--gray); font-size: 0.68rem; }
+        .exp-header { display: flex; justify-content: space-between; margin-bottom: 2px; align-items: center; }
+        .exp-title { font-size: 0.82rem; font-weight: 800; color: var(--dark); }
+        .exp-date { background: var(--primary); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; font-weight: 600; }
+        .exp-company { color: var(--accent); font-weight: 700; margin-bottom: 2px; font-size: 0.75rem; }
+        .exp-desc ul { list-style: none; color: var(--gray); font-size: 0.72rem; }
         .exp-desc li { padding-left: 12px; position: relative; margin-bottom: 1px; }
-        .exp-desc li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+        .exp-desc li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold;}
         
         /* Expertise Box */
-        .skills-box {
-            margin-top: 8px; padding: 10px;
-            background: var(--light); border-radius: 6px;
-            border-left: 2px solid var(--accent);
-        }
-        .skills-box-title { color: var(--dark); font-weight: 700; margin-bottom: 5px; font-size: 0.76rem; }
-        .skills-box ul { list-style: none; color: var(--gray); font-size: 0.68rem; }
+        .skills-box { margin-top: 8px; padding: 10px; background: #fff; border-radius: 6px; border: 1px solid var(--border); border-left: 4px solid var(--accent); }
+        .skills-box-title { color: var(--dark); font-weight: 800; margin-bottom: 5px; font-size: 0.78rem; display: flex; align-items: center; }
+        .skills-box ul { list-style: none; color: var(--gray); font-size: 0.72rem; }
         .skills-box li { padding-left: 12px; position: relative; margin-bottom: 2px; }
         .skills-box li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
         
-        /* ===== Download Section ===== */
-        .download-section {
-            text-align: center; padding: 15px;
-            background: var(--light); border-top: 1px solid var(--border);
-            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
-        }
+        /* Download Section */
+        .download-section { text-align: center; padding: 20px; background: #eee; border-top: 1px solid #ddd; }
         .btn {
-            display: inline-flex; align-items: center; gap: 7px;
-            padding: 8px 22px; border-radius: 50px;
-            font-weight: 600; font-size: 0.82rem;
-            transition: all 0.3s; cursor: pointer;
-            border: none; font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
-            text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 25px; border-radius: 50px;
+            font-weight: 700; font-size: 0.9rem; cursor: pointer;
+            border: none; font-family: inherit; text-decoration: none; transition: 0.3s;
         }
         .btn-pdf { background: var(--primary); color: white; }
         .btn-pdf:hover { background: var(--accent); transform: translateY(-2px); }
         
-        /* ===== Print / PDF Optimization ===== */
+        /* ===== تنظیمات حیاتی برای PDF دو صفحه‌ای ===== */
         @media print {
-            @page { size: A4; margin: 8mm; }
-            
-            body {
-                background: white !important;
-                padding: 0 !important;
+            body { 
+                background: white; 
+                padding: 0; 
+                margin: 0;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-            
-            .resume-container {
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                max-width: 100% !important;
-                overflow: visible !important;
+            .resume-container { 
+                box-shadow: none; 
+                max-width: 100%; 
+                width: 100%;
+                overflow: visible; /* اجازه دهیم محتوا جریان داشته باشد */
             }
+            .download-section { display: none !important; }
             
-            .download-section { 
-                display: none !important; 
-            }
-            
-            /* Prevent breaking items across pages */
-            .experience-item,
-            .skills-box,
-            .section,
-            .personal-bar,
-            .header {
+            /* جلوگیری از شکستن آیتم‌ها در وسط صفحه */
+            .experience-item, .skills-box, .section, .personal-bar, .header {
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
             }
             
-            .sidebar, .content {
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
+            /* تنظیم اندازه صفحه */
+            @page {
+                size: A4;
+                margin: 0; /* حذف حاشیه مرورگر برای کنترل کامل */
             }
-            
-            /* Ensure colors print correctly */
-            .header, .exp-date, .skill-level, .btn-pdf {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-        }
-        
-        /* Mobile */
-        @media (max-width: 768px) {
-            .header { flex-direction: column; text-align: center; padding: 15px; }
-            .contact-info { justify-content: center; }
-            .personal-grid { grid-template-columns: 1fr 1fr; }
-            .personal-bar { padding: 8px 15px; }
-            .main-content { grid-template-columns: 1fr; }
-            .sidebar { border-right: none; border-top: 1px solid var(--border); }
-            .header-info h1 { font-size: 1.4rem; }
-            .content, .sidebar { padding: 12px; }
         }
     </style>
 </head>
 <body>
-    <div class="resume-container" id="resume">
-        
+
+    <div class="resume-container" id="resume-to-pdf">
         <!-- Header -->
         <header class="header">
             <div class="photo-box">
-                <img src="./profile.jpg" alt="Seyed Behzad Mousavi" onerror="this.src='https://via.placeholder.com/100x100?text=Profile'">
+                <img src="./profile.jpg" alt="Seyed Behzad Mousavi" onerror="this.src='https://via.placeholder.com/110x110?text=Photo'">
             </div>
             <div class="header-info">
                 <h1>Seyed Behzad Mousavi</h1>
@@ -246,7 +206,7 @@
             </div>
         </header>
         
-        <!-- Personal Information -->
+        <!-- Personal Info -->
         <div class="personal-bar">
             <div class="personal-grid">
                 <div class="personal-item"><i class="fas fa-birthday-cake"></i><span class="label">Birth Year:</span><span class="value">1969</span></div>
@@ -257,13 +217,12 @@
                 <div class="personal-item"><i class="fas fa-mosque"></i><span class="label">Religion:</span><span class="value">Islam - Shia</span></div>
                 <div class="personal-item"><i class="fas fa-shield-alt"></i><span class="label">Military Service:</span><span class="value">Completed</span></div>
                 <div class="personal-item"><i class="fas fa-ring"></i><span class="label">Marital Status:</span><span class="value">Married</span></div>
-                <div class="personal-item"><i class="fas fa-graduation-cap"></i><span class="label">Education:</span><span class="value">M.Sc. Industrial Engineering</span></div>
+                <div class="personal-item" style="grid-column: span 2;"><i class="fas fa-graduation-cap"></i><span class="label">Education:</span><span class="value">M.Sc. Industrial Engineering</span></div>
             </div>
         </div>
         
         <!-- Body -->
         <div class="main-content">
-            
             <!-- Sidebar -->
             <aside class="sidebar">
                 <div class="section">
@@ -273,33 +232,17 @@
                         <li>English <span class="lang-level">Advanced</span></li>
                     </ul>
                 </div>
+                
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-cogs"></i>Skills</h2>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>Planning & Project Control</span><span>98%</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width:98%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>Project Management (PMP)</span><span>95%</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width:95%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>Oil, Gas & Petrochemical</span><span>95%</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width:95%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>Commissioning & Pre-commissioning</span><span>92%</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width:92%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>Piping & Equipment Installation</span><span>90%</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width:90%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name"><span>Site Management</span><span>88%</span></div>
-                        <div class="skill-bar"><div class="skill-level" style="width:88%"></div></div>
-                    </div>
+                    <div class="skill-item"><div class="skill-name"><span>Planning & Project Control</span><span>98%</span></div><div class="skill-bar"><div class="skill-level" style="width:98%"></div></div></div>
+                    <div class="skill-item"><div class="skill-name"><span>Project Management (PMP)</span><span>95%</span></div><div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
+                    <div class="skill-item"><div class="skill-name"><span>Oil, Gas & Petrochemical</span><span>95%</span></div><div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
+                    <div class="skill-item"><div class="skill-name"><span>Commissioning & Pre-commissioning</span><span>92%</span></div><div class="skill-bar"><div class="skill-level" style="width:92%"></div></div></div>
+                    <div class="skill-item"><div class="skill-name"><span>Piping & Equipment Installation</span><span>90%</span></div><div class="skill-bar"><div class="skill-level" style="width:90%"></div></div></div>
+                    <div class="skill-item"><div class="skill-name"><span>Site Management</span><span>88%</span></div><div class="skill-bar"><div class="skill-level" style="width:88%"></div></div></div>
                 </div>
+                
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-laptop-code"></i>Software</h2>
                     <ul class="simple-list">
@@ -310,6 +253,7 @@
                         <li>PowerPoint</li>
                     </ul>
                 </div>
+                
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-industry"></i>Industries</h2>
                     <ul class="simple-list">
@@ -326,15 +270,16 @@
             <main class="content">
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-user"></i>About Me</h2>
-                    <p style="color:var(--gray); line-height:1.7; font-size:0.76rem;">
+                    <p style="color:var(--gray); line-height:1.5; font-size:0.76rem; text-align: justify;">
                         Planning & Project Manager with over <strong>25 years of experience</strong> in Iran's oil, gas, and petrochemical industries.
                         Specialized in managing large-scale refinery, petrochemical, and offshore gas platform projects in special economic energy zones (Assaluyeh, South Pars, Bandar Abbas).
                         Experienced in commissioning and production of more than 15 industrial phases, from construction to final handover to the client.
                         Proficient in all engineering disciplines including piping, civil, heavy equipment installation, electrical & instrumentation, fixed and floating roof storage tanks.
                     </p>
+                    
                     <div class="skills-box">
                         <div class="skills-box-title">
-                            <i class="fas fa-check-circle" style="color:var(--accent); margin-right:5px;"></i>
+                            <i class="fas fa-check-circle" style="color:var(--accent); margin-right:6px;"></i>
                             Full Mastery of All Specialized Areas:
                         </div>
                         <ul>
@@ -348,7 +293,7 @@
                     </div>
                 </div>
                 
-                <!-- Work Experience -->
+                <!-- Work Experience - FULL LIST -->
                 <div class="section">
                     <h2 class="section-title"><i class="fas fa-briefcase"></i>Work Experience</h2>
                     
@@ -357,71 +302,85 @@
                         <div class="exp-company">Raspad Company | Mehr Refinery - Bandar Abbas</div>
                         <div class="exp-desc"><ul><li>Construction and pre-commissioning of storage tanks</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Manager</span><span class="exp-date">Jul 2024 - Nov 2025</span></div>
                         <div class="exp-company">CES Consortium | Bushehr Petrochemical - Assaluyeh</div>
                         <div class="exp-desc"><ul><li>All disciplines through commissioning and production</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Manager</span><span class="exp-date">Apr 2023 - Jun 2024</span></div>
                         <div class="exp-company">Petro Niroo Saba Co. | Songhor Petrochemical</div>
                         <div class="exp-desc"><ul><li>All disciplines through commissioning and production</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Manager</span><span class="exp-date">Dec 2021 - Mar 2023</span></div>
                         <div class="exp-company">Fakoor Sanat Tehran Co. | Golfa Concentrate Mine & Sirjan Steel Development</div>
                         <div class="exp-desc"><ul><li>All disciplines through commissioning and production</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Manager</span><span class="exp-date">Feb 2021 - Nov 2021</span></div>
                         <div class="exp-company">Mobina Co. (Supervision) | Darehzar Copper Mine</div>
                         <div class="exp-desc"><ul><li>All disciplines through commissioning and production</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Senior Planning Engineer</span><span class="exp-date">Sep 2019 - Jun 2020</span></div>
                         <div class="exp-company">Techno Energy Sepehr (TESCO) | Sadra Offshore Yard - Bushehr</div>
                         <div class="exp-desc"><ul><li>Commissioning and production of gas platforms</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Site Manager</span><span class="exp-date">Feb 2017 - Sep 2018</span></div>
                         <div class="exp-company">Petrosazeh Mobin Co. | Phases 22-24 Assaluyeh</div>
                         <div class="exp-desc"><ul><li>Piping and equipment installation through pre-commissioning</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Project Manager</span><span class="exp-date">Apr 2016 - Feb 2017</span></div>
                         <div class="exp-company">Polygon Sazeh Co. | South Pars</div>
                         <div class="exp-desc"><ul><li>Piping and civil works through pre-commissioning</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Site Manager</span><span class="exp-date">Apr 2015 - Mar 2016</span></div>
                         <div class="exp-company">Alborz Novin Fars Co. | Phases 20-21 Assaluyeh</div>
                         <div class="exp-desc"><ul><li>Piping works through pre-commissioning</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Manager</span><span class="exp-date">May 2014 - Mar 2015</span></div>
                         <div class="exp-company">Shabdiz Sanat Apadana Co. | Phase 13 Assaluyeh</div>
                         <div class="exp-desc"><ul><li>Piping and civil works through pre-commissioning</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Manager</span><span class="exp-date">May 2011 - Feb 2014</span></div>
                         <div class="exp-company">Mohammadian Co. | Phases 22-24 Assaluyeh</div>
                         <div class="exp-desc"><ul><li>Piping and civil works through pre-commissioning</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Manager</span><span class="exp-date">Sep 2008 - Feb 2011</span></div>
                         <div class="exp-company">Hanmak Pars Co. | Structure Fabrication Plant - Assaluyeh</div>
                         <div class="exp-desc"><ul><li>Fabrication of structures for oil & gas complexes</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Head of Project Control Coordination</span><span class="exp-date">Feb 2005 - Feb 2008</span></div>
                         <div class="exp-company">Toyo Engineering (Japan) | Phases 6-7-8 Assaluyeh</div>
                         <div class="exp-desc"><ul><li>All refinery disciplines through commissioning and production (Client side)</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Engineer</span><span class="exp-date">Jun 2002 - Feb 2005</span></div>
                         <div class="exp-company">Tehran Jonoub Co. | Phases 4-5 Assaluyeh</div>
                         <div class="exp-desc"><ul><li>All disciplines through commissioning and production</li></ul></div>
                     </div>
+                    
                     <div class="experience-item">
                         <div class="exp-header"><span class="exp-title">Planning Engineer</span><span class="exp-date">Apr 2000 - May 2002</span></div>
                         <div class="exp-company">Ati Sazan Shargh Co. | Phases 2-3 Assaluyeh</div>
@@ -431,13 +390,48 @@
             </main>
         </div>
         
-        <!-- ✅ Single Download Button: Opens Print Dialog (Always Works) -->
+        <!-- Download Button -->
         <div class="download-section">
-            <button onclick="window.print()" class="btn btn-pdf">
-                <i class="fas fa-file-pdf"></i>
-                Download Resume PDF
+            <button onclick="generatePDF()" class="btn btn-pdf">
+                <i class="fas fa-file-pdf"></i> Download Resume PDF (2 Pages)
             </button>
         </div>
     </div>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('resume-to-pdf');
+            
+            if (typeof html2pdf === 'undefined') {
+                alert('Library not loaded. Using browser print method...');
+                window.print();
+                return;
+            }
+
+            // محاسبه ارتفاع برای تقسیم بندی دقیق صفحات
+            // A4 height is 297mm. We want exactly 2 pages.
+            const opt = {
+                margin:       [0, 0, 0, 0], // حذف حاشیه برای کنترل کامل
+                filename:     'Seyed_Behzad_Mousavi_Resume.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true,
+                    allowTaint: true,
+                    logging: false,
+                    scrollY: 0 // جلوگیری از پرش صفحه
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] } // تلاش برای جلوگیری از شکستن بد آیتم‌ها
+            };
+
+            // اجرای تبدیل
+            html2pdf().set(opt).from(element).save().catch(function(err) {
+                console.error(err);
+                alert('PDF generation failed. Please use Ctrl+P to print as PDF.');
+                window.print();
+            });
+        }
+    </script>
 </body>
 </html>
