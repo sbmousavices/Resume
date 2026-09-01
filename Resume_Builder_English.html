@@ -21,9 +21,14 @@
             --accent-light: #f4d06f;
             --text-primary: #e8eef7;
             --text-secondary: #a0aec0;
+            --text-muted: #94a3b8;
             --border: rgba(212, 175, 55, 0.2);
             --gradient: linear-gradient(135deg, #d4af37 0%, #f4d06f 100%);
             --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            
+            /* ✅ NAV STANDARD VARIABLES */
+            --nav-height: 70px;
+            --nav-bg: rgba(10, 10, 12, 0.95);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
@@ -34,67 +39,99 @@
             display: flex; 
             flex-direction: column;
             min-height: 100vh; 
+            padding-top: var(--nav-height); /* ✅ SPACE FOR FIXED HEADER */
         }
 
-        /* ✅ NAVIGATION BAR STYLES */
+        /* ✅ UNIFIED NAVIGATION BAR STYLES */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 1rem 5%; 
-            background: rgba(10, 22, 40, 0.98); backdrop-filter: blur(15px);
-            z-index: 1000; border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
         }
-        
-        .nav-container { 
-            max-width: 1600px; margin: 0 auto; 
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        
-        /* Logo + Home Text Style */
-        .logo { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.6rem; font-weight: 900; 
-            color: var(--accent); text-decoration: none; 
-            display: flex; align-items: center; gap: 12px;
-        }
-        .logo-circle {
-            width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--accent);
-            overflow: hidden; display: flex; align-items: center; justify-content: center;
-            background: var(--bg-card); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-        }
-        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* ✅ UPDATED NAV LINKS - MOVED TO RIGHT SIDE */
-        .nav-links { 
-            display: flex; 
-            gap: 1.8rem; 
-            list-style: none; 
-            align-items: center; 
-            margin-left: auto; 
-            margin-right: 2rem; 
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
         }
-        .nav-links a { 
-            color: var(--text-primary); text-decoration: none; font-weight: 500; 
-            transition: color 0.3s; font-size: 0.95rem; letter-spacing: 0.3px;
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* ✅ SIGN IN BUTTON STYLE */
         .btn-signin {
-            padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600;
-            font-size: 0.9rem; cursor: pointer; transition: all 0.3s;
-            border: 1px solid var(--accent); color: var(--accent); background: transparent;
-            text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
             white-space: nowrap;
         }
-        .btn-signin:hover { 
-            background: var(--accent); color: var(--bg-primary); 
+
+        .btn-signin:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Main Content Layout */
         .main-container {
             display: flex;
             flex: 1;
-            margin-top: 75px; 
-            height: calc(100vh - 75px);
+            height: calc(100vh - var(--nav-height));
         }
 
         /* Editor Panel - Dark Theme Matching Site */
@@ -119,7 +156,7 @@
         }
 
         h2 { 
-            margin-bottom: 1.5rem; color: var(--accent); 
+            margin-bottom: 1rem; color: var(--accent); 
             border-bottom: 2px solid var(--border); 
             padding-bottom: 0.5rem; display: inline-block; 
             font-family: 'Playfair Display', serif;
@@ -172,6 +209,31 @@
         }
         .btn-download:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6); }
 
+        /* ✅ LANGUAGE SWITCHER BUTTON (TOP POSITION) */
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem; /* Spacing below the button */
+        }
+        .lang-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
         /* Resume Themes */
         .theme-classic header { text-align: center; border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 20px; }
         .theme-classic .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); display: block; margin: 0 auto 15px; }
@@ -193,8 +255,9 @@
         .theme-minimal .section-title { color: #0a1628; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 30px; border-bottom: 1px solid #ddd; }
 
         /* Responsive Design */
-        @media (max-width: 1000px) {
+        @media (max-width: 968px) {
             .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
             .main-container { flex-direction: column; height: auto; }
             .editor-panel, .preview-panel { width: 100%; height: auto; }
             #resume-preview { transform: scale(0.6); transform-origin: top center; margin-bottom: -40%; }
@@ -204,35 +267,35 @@
 </head>
 <body>
 
-    <!-- ✅ EXACT NAVIGATION BAR (MATCHING SCREENSHOT) -->
+    <!-- ✅ EXACT NAVIGATION BAR (MATCHING STANDARD) -->
     <nav>
-        <div class="nav-container">
-            <a href="https://sbmousavices.github.io/Industrial-Tools/EnglishInfo.html" class="logo">
-                <div class="logo-circle">
-                    <img src="https://sbmousavices.github.io/Industrial-Tools/icon-192.png" alt="BM Logo">
-                </div>
-                Home
-            </a>
-            
-            <ul class="nav-links">
-                <li><a href="https://sbmousavices.github.io/Resume/Resume_Builder_English.html" class="active">Resume Builder</a></li>
-                <li><a href="https://sbmousavices.github.io/Theme/index.html">Web Design</a></li>
-                <li><a href="https://sbmousavices.github.io/NFT/">NFT Gallery</a></li>
-                <li><a href="https://sbmousavices.github.io/Industrial-Tools/">Products</a></li>
-                <li><a href="https://sbmousavices.github.io/Articles/">Articles</a></li>
-                <li><a href="https://sbmousavices.github.io/Industrial-Tools/Community.html">Community</a></li>
-                <li><a href="https://sbmousavices.github.io/Industrial-Tools/hub.html">Hub</a></li>
-                <li><a href="https://sbmousavices.github.io/Industrial-Tools/EnglishInfo.html#contact">Contact</a></li>
-            </ul>
-
-            <a href="#" class="btn-signin"><i class="fas fa-user"></i> Sign In</a>
-        </div>
+        <a href="https://sbmousavices.github.io/Industrial-Tools/EnglishInfo.html" class="nav-logo">
+            <img src="https://sbmousavices.github.io/Industrial-Tools/icon-192.png" alt="BM Planning Logo">
+            <span>Home</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="https://sbmousavices.github.io/Resume/Resume_Builder_English.html" class="active">Resume Builder</a></li>
+            <li><a href="https://sbmousavices.github.io/Theme/index.html">Web Design</a></li>
+            <li><a href="https://sbmousavices.github.io/NFT/">NFT Gallery</a></li>
+            <li><a href="https://sbmousavices.github.io/Industrial-Tools/">Products</a></li>
+            <li><a href="https://sbmousavices.github.io/Articles/">Articles</a></li>
+            <li><a href="https://sbmousavices.github.io/Industrial-Tools/community.html">Community</a></li>
+            <li><a href="https://sbmousavices.github.io/Industrial-Tools/hub.html">Hub</a></li>
+            <li><a href="https://sbmousavices.github.io/Industrial-Tools/EnglishInfo.html#contact">Contact</a></li>
+            <li><a href="https://sbmousavices.github.io/Industrial-Tools/EnglishInfo.html" class="btn-signin"><i class="fas fa-user"></i> Sign In</a></li>
+        </ul>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
     </nav>
 
     <div class="main-container">
         <!-- Editor Panel -->
         <div class="editor-panel">
             <h2><i class="fas fa-pen-fancy"></i> Resume Editor</h2>
+            
+            <!-- ✅ LANGUAGE SWITCHER BUTTON (MOVED TO TOP) -->
+            <a href="https://sbmousavices.github.io/Resume/Resume_Builder-Farsi.html" class="lang-btn">
+                <i class="fas fa-globe"></i> Persian / Arabic
+            </a>
             
             <div class="form-group">
                 <label>Select Resume Template:</label>
@@ -248,7 +311,7 @@
             <div class="form-group"><input type="text" id="inp-job" placeholder="Job Title (e.g., Project Manager)" oninput="updateResume()"></div>
             <div class="form-group"><input type="email" id="inp-email" placeholder="Email Address" oninput="updateResume()"></div>
             <div class="form-group"><input type="tel" id="inp-phone" placeholder="Phone Number" oninput="updateResume()"></div>
-            <div class="form-group"><input type="text" id="inp-loc" placeholder="City, Country" oninput="updateResume()"></div>
+            <div class="form-group"><input type="text" id="inp-loc" placeholder="Home Address: City, Country" oninput="updateResume()"></div>
             <div class="form-group">
                 <label>Military Service Status:</label>
                 <select id="inp-military" onchange="updateResume()">
