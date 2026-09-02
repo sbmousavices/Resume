@@ -124,6 +124,35 @@
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
+        /* ✅ FLOATING BACK TO DIGITAL CARD BUTTON (LEFT SIDE FOR RTL) */
+        .floating-back-btn {
+            position: fixed;
+            top: calc(var(--nav-height) + 15px); /* Exactly below navbar with small gap */
+            left: 5%; /* Aligned to the LEFT side for RTL pages */
+            z-index: 999; /* Below nav but above content */
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1.2rem;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .floating-back-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -268,10 +297,23 @@
             .editor-panel, .preview-panel { width: 100%; height: auto; }
             #resume-preview { transform: scale(0.6); transform-origin: top center; margin-bottom: -40%; }
             .btn-download { bottom: 20px; left: 20px; padding: 0.8rem 1.5rem; font-size: 1rem; }
+            
+            /* Adjust floating button for mobile RTL */
+            .floating-back-btn {
+                left: 20px;
+                top: calc(var(--nav-height) + 10px);
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- ✅ FLOATING BACK TO DIGITAL CARD BUTTON (LEFT SIDE FOR RTL) -->
+    <a href="https://sbmousavices.github.io/Theme/digital-card-fa.html" class="floating-back-btn">
+        <i class="fas fa-arrow-right"></i> بازگشت به کارت ویزیت
+    </a>
 
     <!-- ✅ EXACT NAVIGATION BAR ORDER (RIGHT TO LEFT) -->
     <nav>
