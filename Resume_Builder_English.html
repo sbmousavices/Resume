@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- HTML to PDF Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         :root {
@@ -39,200 +37,60 @@
             display: flex; 
             flex-direction: column;
             min-height: 100vh; 
-            padding-top: var(--nav-height); /* ✅ SPACE FOR FIXED HEADER */
+            padding-top: var(--nav-height); 
         }
 
         /* ✅ UNIFIED NAVIGATION BAR STYLES */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--nav-height);
-            background: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-height);
+            background: var(--nav-bg); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between; padding: 0 5%;
         }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .nav-logo img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 1px solid var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--accent);
-        }
-
-        /* ✅ SIGN IN BUTTON STYLE */
-        .btn-signin {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.6rem 1.5rem;
-            border: 1px solid var(--accent);
-            border-radius: 50px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .btn-signin:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Mobile Menu Toggle */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); font-weight: 700; font-size: 1.2rem; }
+        .nav-logo img { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--accent); }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+        .btn-signin { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.5rem; border: 1px solid var(--accent); border-radius: 50px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; white-space: nowrap; }
+        .btn-signin:hover { background: var(--accent); color: var(--bg-primary); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
 
         /* Main Content Layout */
-        .main-container {
-            display: flex;
-            flex: 1;
-            height: calc(100vh - var(--nav-height));
-        }
+        .main-container { display: flex; flex: 1; height: calc(100vh - var(--nav-height)); }
+        .editor-panel { width: 40%; padding: 2rem; background: var(--bg-secondary); overflow-y: auto; border-right: 1px solid var(--border); box-shadow: 5px 0 15px rgba(0,0,0,0.2); }
+        .preview-panel { width: 60%; padding: 2rem; background: #050b14; display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; }
 
-        /* Editor Panel - Dark Theme Matching Site */
-        .editor-panel {
-            width: 40%;
-            padding: 2rem;
-            background: var(--bg-secondary);
-            overflow-y: auto;
-            border-right: 1px solid var(--border);
-            box-shadow: 5px 0 15px rgba(0,0,0,0.2);
-        }
-
-        /* Preview Panel */
-        .preview-panel {
-            width: 60%;
-            padding: 2rem;
-            background: #050b14; 
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            overflow-y: auto;
-        }
-
-        h2 { 
-            margin-bottom: 1rem; color: var(--accent); 
-            border-bottom: 2px solid var(--border); 
-            padding-bottom: 0.5rem; display: inline-block; 
-            font-family: 'Playfair Display', serif;
-        }
-        
+        h2 { margin-bottom: 1rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; display: inline-block; font-family: 'Playfair Display', serif; }
         .form-group { margin-bottom: 1rem; }
         label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--text-secondary); }
-        
-        input, textarea, select {
-            width: 100%; padding: 0.8rem; 
-            background: var(--bg-card);
-            border: 1px solid var(--border); border-radius: 8px;
-            font-family: inherit; transition: 0.3s;
-            color: var(--text-primary);
-        }
-        input:focus, textarea:focus, select:focus { 
-            border-color: var(--accent); outline: none; 
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
-        }
-        
-        /* Textarea Settings */
+        input, textarea, select { width: 100%; padding: 0.8rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-family: inherit; transition: 0.3s; color: var(--text-primary); }
+        input:focus, textarea:focus, select:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1); }
         textarea { resize: vertical; min-height: 80px; }
         #inp-exp { min-height: 200px; }
+        .section-title { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem; color: var(--accent-light); font-weight: 800; display: flex; align-items: center; gap: 8px; }
 
-        .section-title { 
-            margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem; 
-            color: var(--accent-light); font-weight: 800; display: flex; align-items: center; gap: 8px;
-        }
-
-        /* A4 Paper Styles */
+        /* ✅ FIXED A4 PAPER STYLES FOR PREVIEW ONLY */
         #resume-preview {
             width: 210mm;
-            min-height: 297mm;
+            min-height: 297mm; /* Only for visual preview in browser */
             background: white;
             color: #333; 
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
             padding: 40px;
             position: relative;
             transform-origin: top center;
+            overflow: hidden; 
+            box-shadow: none; 
         }
 
         /* Floating Download Button */
-        .btn-download {
-            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
-            background: var(--gradient); color: var(--bg-primary); border: none;
-            padding: 1rem 2rem; border-radius: 50px; font-size: 1.1rem;
-            cursor: pointer; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-            transition: 0.3s; display: flex; align-items: center; gap: 10px;
-            font-weight: 700;
-        }
+        .btn-download { position: fixed; bottom: 30px; right: 30px; z-index: 1000; background: var(--gradient); color: var(--bg-primary); border: none; padding: 1rem 2rem; border-radius: 50px; font-size: 1.1rem; cursor: pointer; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4); transition: 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 700; }
         .btn-download:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6); }
+        .btn-download:disabled { opacity: 0.7; cursor: not-allowed; filter: grayscale(1); }
 
-        /* ✅ LANGUAGE SWITCHER BUTTON (TOP POSITION) */
-        .lang-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            margin-bottom: 1.5rem; /* Spacing below the button */
-        }
-        .lang-btn:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
+        /* Language Switcher */
+        .lang-btn { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 0.8rem 1rem; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent); border-radius: 8px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; margin-bottom: 1.5rem; }
+        .lang-btn:hover { background: var(--accent); color: var(--bg-primary); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
 
         /* Resume Themes */
         .theme-classic header { text-align: center; border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 20px; }
@@ -260,14 +118,62 @@
             .mobile-menu-btn { display: block; }
             .main-container { flex-direction: column; height: auto; }
             .editor-panel, .preview-panel { width: 100%; height: auto; }
-            #resume-preview { transform: scale(0.6); transform-origin: top center; margin-bottom: -40%; }
+            /* Mobile scaling class */
+            .preview-panel.mobile-view #resume-preview { 
+                transform: scale(0.6); 
+                transform-origin: top center; 
+                margin-bottom: -40%; 
+            }
             .btn-download { bottom: 20px; right: 20px; padding: 0.8rem 1.5rem; font-size: 1rem; }
+        }
+
+        /* ✅ NATIVE PRINT STYLES - GUARANTEES PERFECT PDF OUTPUT */
+        @media print {
+            /* ✅ FIX: Force white background for body to prevent black areas */
+            body { 
+                background-color: white !important; 
+                color: black !important;
+                padding-top: 0 !important;
+            }
+
+            /* Hide everything except the resume preview */
+            body * { visibility: hidden !important; }
+            #resume-preview, #resume-preview * { 
+                visibility: visible !important; 
+            }
+            
+            /* Position and style the resume for printing */
+            #resume-preview {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 210mm !important;
+                min-height: auto !important; /* Let content dictate height */
+                margin: 0 !important;
+                padding: 20mm !important; /* Standard print margins */
+                transform: none !important; /* CRITICAL: Remove any scaling */
+                box-shadow: none !important;
+                background: white !important;
+                color: #333 !important;
+                overflow: visible !important;
+            }
+            
+            /* Hide UI elements that shouldn't appear in PDF */
+            .btn-download, nav, .editor-panel, .lang-btn, .mobile-menu-btn { 
+                display: none !important; 
+            }
+            
+            /* Set exact A4 page size */
+            @page { 
+                size: A4 portrait; 
+                margin: 0; 
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ✅ EXACT NAVIGATION BAR (MATCHING STANDARD) -->
+    <!-- Navigation Bar -->
     <nav>
         <a href="https://sbmousavices.github.io/Industrial-Tools/EnglishInfo.html" class="nav-logo">
             <img src="https://sbmousavices.github.io/Industrial-Tools/icon-192.png" alt="BM Planning Logo">
@@ -291,8 +197,6 @@
         <!-- Editor Panel -->
         <div class="editor-panel">
             <h2><i class="fas fa-pen-fancy"></i> Resume Editor</h2>
-            
-            <!-- ✅ LANGUAGE SWITCHER BUTTON (MOVED TO TOP) -->
             <a href="https://sbmousavices.github.io/Resume/Resume_Builder-Farsi.html" class="lang-btn">
                 <i class="fas fa-globe"></i> Persian / Arabic
             </a>
@@ -341,7 +245,6 @@
             <div class="section-title"><i class="fas fa-tools"></i> Skills & Courses</div>
             <div class="form-group"><textarea id="inp-skills" placeholder="- Primavera P6&#10;- Risk Management (EVM)&#10;- Web Design (HTML/CSS)&#10;- SEO & Digital Marketing" oninput="updateResume()"></textarea></div>
 
-            <!-- ✅ NEW LANGUAGES SECTION -->
             <div class="section-title"><i class="fas fa-language"></i> Languages</div>
             <div class="form-group">
                 <textarea id="inp-languages" placeholder="- English (Fluent)&#10;- Persian (Native)&#10;- French (Intermediate)" oninput="updateResume()"></textarea>
@@ -349,9 +252,8 @@
         </div>
 
         <!-- Preview Panel -->
-        <div class="preview-panel">
+        <div class="preview-panel" id="previewPanel">
             <div id="resume-preview" class="theme-classic">
-                <!-- Content populated by JavaScript -->
                 <header>
                     <img src="https://via.placeholder.com/150" id="res-photo" class="profile-img" alt="Profile">
                     <h1 id="res-name">Full Name</h1>
@@ -369,23 +271,18 @@
                         <h3 class="section-title">Professional Summary</h3>
                         <p id="res-summary" style="line-height: 1.8; text-align: justify;">Your professional summary will appear here...</p>
                     </div>
-
                     <div class="section">
                         <h3 class="section-title">Work Experience</h3>
                         <div id="res-exp" style="white-space: pre-line; line-height: 1.8;"></div>
                     </div>
-
                     <div class="section">
                         <h3 class="section-title">Education</h3>
                         <div id="res-edu" style="white-space: pre-line; line-height: 1.8;"></div>
                     </div>
-
                     <div class="section">
                         <h3 class="section-title">Skills & Courses</h3>
                         <div id="res-skills" style="white-space: pre-line; line-height: 1.8;"></div>
                     </div>
-
-                    <!-- ✅ NEW LANGUAGES DISPLAY IN PREVIEW -->
                     <div class="section">
                         <h3 class="section-title">Languages</h3>
                         <div id="res-languages" style="white-space: pre-line; line-height: 1.8;"></div>
@@ -396,7 +293,7 @@
     </div>
 
     <!-- Download Button -->
-    <button class="btn-download" onclick="downloadPDF()">
+    <button class="btn-download" id="btnDownload" onclick="downloadPDF()">
         <i class="fas fa-file-pdf"></i> Download PDF
     </button>
 
@@ -428,8 +325,6 @@
             document.getElementById('res-exp').innerText = document.getElementById('inp-exp').value;
             document.getElementById('res-edu').innerText = document.getElementById('inp-edu').value;
             document.getElementById('res-skills').innerText = document.getElementById('inp-skills').value;
-            
-            // ✅ UPDATE LANGUAGES FIELD
             document.getElementById('res-languages').innerText = document.getElementById('inp-languages').value;
         }
 
@@ -455,32 +350,20 @@
                         <img src="${document.getElementById('res-photo').src}" id="res-photo" class="profile-img">
                         <h1 id="res-name">${document.getElementById('inp-name').value || 'Full Name'}</h1>
                         <div class="job-title" id="res-job">${document.getElementById('inp-job').value || 'Job Title'}</div>
-                        
                         <h3>Contact</h3>
                         <div id="res-email" style="margin-bottom:5px; font-size:0.9rem;"></div>
                         <div id="res-phone" style="margin-bottom:5px; font-size:0.9rem;"></div>
                         <div id="res-loc" style="margin-bottom:5px; font-size:0.9rem;"></div>
                         <div id="res-military" style="margin-top:10px; font-size:0.9rem; color:#d4af37;"></div>
-
                         <h3>Skills</h3>
                         <div id="res-skills" style="font-size:0.9rem; white-space: pre-line; margin-bottom:15px;"></div>
-                        
                         <h3>Languages</h3>
                         <div id="res-languages" style="font-size:0.9rem; white-space: pre-line;"></div>
                     </div>
                     <div class="main-content">
-                        <div class="section">
-                            <h3>Professional Summary</h3>
-                            <p id="res-summary" style="line-height:1.8;"></p>
-                        </div>
-                        <div class="section">
-                            <h3>Work Experience</h3>
-                            <div id="res-exp" style="white-space: pre-line; line-height:1.8;"></div>
-                        </div>
-                        <div class="section">
-                            <h3>Education</h3>
-                            <div id="res-edu" style="white-space: pre-line; line-height:1.8;"></div>
-                        </div>
+                        <div class="section"><h3>Professional Summary</h3><p id="res-summary" style="line-height:1.8;"></p></div>
+                        <div class="section"><h3>Work Experience</h3><div id="res-exp" style="white-space: pre-line; line-height:1.8;"></div></div>
+                        <div class="section"><h3>Education</h3><div id="res-edu" style="white-space: pre-line; line-height:1.8;"></div></div>
                     </div>
                 `;
             } else {
@@ -490,9 +373,7 @@
                         <h1 id="res-name">${document.getElementById('inp-name').value || 'Full Name'}</h1>
                         <div class="job-title" id="res-job">${document.getElementById('inp-job').value || 'Job Title'}</div>
                         <div class="contact-info">
-                            <span id="res-email"></span>
-                            <span id="res-phone"></span>
-                            <span id="res-loc"></span>
+                            <span id="res-email"></span><span id="res-phone"></span><span id="res-loc"></span>
                             <span id="res-military" style="color:#d4af37; font-weight:bold;"></span>
                         </div>
                     </header>
@@ -508,18 +389,52 @@
             updateResume();
         }
 
-        // PDF Download Function
+        // ✅ NATIVE PRINT METHOD WITH DYNAMIC FILE NAMING
         function downloadPDF() {
-            const element = document.getElementById('resume-preview');
-            const opt = {
-                margin:       0,
-                filename:     'My_Resume_BehzadMousavi.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
+            const previewPanel = document.getElementById('previewPanel');
+            const userNameInput = document.getElementById('inp-name').value.trim();
+            
+            // Create dynamic filename based on user input or default to "User"
+            const safeUserName = userNameInput.replace(/[^a-zA-Z0-9\s]/g, '') || 'User';
+            const originalTitle = document.title;
+            
+            // Set document title to desired filename format
+            // Browsers use the current document.title as the default PDF filename
+            document.title = `${safeUserName}_Resume`;
+            
+            const isMobile = window.innerWidth <= 968;
+            
+            // Temporarily remove mobile scaling to ensure full-resolution print
+            if (isMobile) {
+                previewPanel.classList.remove('mobile-view');
+            }
+            
+            // Small delay to allow DOM and title to update before opening print dialog
+            setTimeout(() => {
+                window.print();
+                
+                // Restore original title and mobile view after print dialog closes
+                setTimeout(() => {
+                    document.title = originalTitle;
+                    if (isMobile && window.innerWidth <= 968) {
+                        previewPanel.classList.add('mobile-view');
+                    }
+                }, 1000);
+            }, 100);
         }
+
+        // Initialize mobile view check
+        function checkMobileView() {
+            const previewPanel = document.getElementById('previewPanel');
+            if (window.innerWidth <= 968) {
+                previewPanel.classList.add('mobile-view');
+            } else {
+                previewPanel.classList.remove('mobile-view');
+            }
+        }
+        
+        window.addEventListener('resize', checkMobileView);
+        window.addEventListener('load', checkMobileView);
     </script>
 </body>
 </html>
